@@ -29,20 +29,27 @@ public class BallCatiBehaviour : MonoBehaviour {
         audio = this.gameObject.audio;
 
         audio.clip = hit;
-        // this.force = new Vector2(0.1737f, 0.1737f); // 0.52
+        //this.force = new Vector2(0.1737f, 0.1737f); // 0.52
         // this.force = new Vector2(0.1738f, 0.1738f); // 0.52
         // this.force = new Vector2(0.17378f, 0.17378f); // 0.52
-        // this.force = new Vector2(0.1799999999999999999999999999999f, 0.179999999999999999999999999999999999f);
-		// this.force = new Vector2 (0.09f, 0.09f);
-		 this.force = new Vector2(10f, 10f);
-		//this.rigidbody2D.AddForce (force);
+        //this.force = new Vector2(0.1799999999999999999999999999999f, 0.179999999999999999999999999999999999f);
+		//this.force = new Vector2 (0.09f, 0.09f);
+        this.force = new Vector2(0.15f, 0.15f);
+         //this.force = new Vector2(100f, -100f);
+        //this.rigidbody2D.AddForce (force);
+        //this.rigidbody2D.fixedAngle = true;
 		//this.force = new Vector2(0f, 23f);
 	}
 	
+    void Update()
+    {
+        this.transform.Translate(new Vector3(force.x, force.y, 0));
+    }
+
 	// Update is called once per frame
 	void FixedUpdate() {
         //this.transform.Translate(new Vector3(force.x, force.y, 0));
-		this.rigidbody2D.AddForce (force);
+		//this.rigidbody2D.AddForce (force);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -59,6 +66,8 @@ public class BallCatiBehaviour : MonoBehaviour {
             startTime = Time.time;
 
             collisions++;
+
+            //this.rigidbody2D.AddForce(force);
 
        //     this.audio.Play();
 
@@ -81,6 +90,8 @@ public class BallCatiBehaviour : MonoBehaviour {
             startTime = Time.time;
 
            // this.audio.Play();
+
+            //this.rigidbody2D.AddForce(force);
 
             collisions++;
 
